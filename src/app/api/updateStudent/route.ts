@@ -57,10 +57,7 @@ export async function PUT(req: Request) {
       },
     });
 
-    return NextResponse.json(updatedStudent, { status: 200 }).headers.set(
-      "Cache-Control",
-      "no-store"
-    );
+    return NextResponse.json(updatedStudent, { status: 200 });
   } catch (error) {
     console.error("Error updating student:", error);
     return NextResponse.json(

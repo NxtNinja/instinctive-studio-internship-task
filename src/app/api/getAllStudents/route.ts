@@ -27,10 +27,7 @@ export async function GET() {
       })
     );
 
-    return NextResponse.json(transformedStudents).headers.set(
-      "Cache-Control",
-      "no-store"
-    );
+    return NextResponse.json(transformedStudents);
   } catch (error) {
     console.error("Error fetching students:", error);
     return NextResponse.json(
