@@ -3,10 +3,10 @@ const { prisma } = require("../../../../utils/prisma");
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
   try {
-    const studentId = params.id;
+    const studentId = context.params.id;
 
     await prisma.StudentCourses.deleteMany({
       where: {
