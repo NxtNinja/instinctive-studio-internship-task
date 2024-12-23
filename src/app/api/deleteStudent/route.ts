@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-const { prisma } = require("@/utils/prisma");
+import { prisma } from "@/utils/prisma";
 
 export async function DELETE(request: Request) {
   try {
@@ -15,7 +15,7 @@ export async function DELETE(request: Request) {
     }
 
     // Delete associated student courses
-    await prisma.StudentCourses.deleteMany({
+    await prisma.studentCourses.deleteMany({
       where: {
         student_id: studentId,
       },

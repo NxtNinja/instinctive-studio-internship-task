@@ -4,7 +4,6 @@ import { create } from "zustand";
 export interface Course {
   id: string;
   course_name: string;
-  category: string;
 }
 
 interface CoursesStore {

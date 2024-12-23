@@ -12,12 +12,10 @@ import useCoursesStore from "@/stores/useCoursesStore";
 import useStudentsStore from "@/stores/useStudentsStore";
 import axios from "axios";
 import { Loader, Plus, X } from "lucide-react";
-import { FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 
-interface CreateStudentDialogProps {}
-
-const CreateStudentDialog: FC<CreateStudentDialogProps> = ({}) => {
+const CreateStudentDialog = () => {
   const [selectedCourses, setSelectedCourses] = useState<string[]>([]);
   const [selectedCohort, setSelectedCohort] = useState<string>("");
   const [studentName, setStudentName] = useState("");
@@ -35,7 +33,7 @@ const CreateStudentDialog: FC<CreateStudentDialogProps> = ({}) => {
   useEffect(() => {
     fetchCourses();
     fetchCohorts();
-  }, []);
+  }, [fetchCohorts, fetchCourses]);
 
   const handleCourseSelect = (courseId: string) => {
     setSelectedCourses((prev) =>
@@ -83,7 +81,7 @@ const CreateStudentDialog: FC<CreateStudentDialogProps> = ({}) => {
         <DialogHeader>
           <DialogTitle>New student profile</DialogTitle>
           <DialogDescription>
-            Create a new student profile here. Click save when you're done.
+            Create a new student profile here. Click save when you&apos;re done.
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">

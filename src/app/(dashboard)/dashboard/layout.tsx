@@ -11,6 +11,7 @@ import {
   Settings,
 } from "lucide-react";
 import Header from "@/components/Header";
+import Image from "next/image";
 
 interface LayoutProps {
   children: ReactNode;
@@ -34,7 +35,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
       <aside className="w-80 hidden bg-white border-r border-gray-200 lg:flex flex-col h-full gap-8">
         {/* Logo */}
         <div className="p-7">
-          <img
+          <Image
             src="/Vector.svg"
             alt="Brand Logo"
             width={150}

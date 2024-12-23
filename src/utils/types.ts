@@ -9,7 +9,6 @@ type Cohort = {
 type Course = {
   id: string;
   course_name: string;
-  category: string;
 };
 
 type StudentCourse = {
@@ -21,7 +20,6 @@ type StudentCourse = {
 type Student = {
   id: string;
   name: string;
-  email: string;
   date_joined: Date;
   cohort_id: string;
   last_login: Date | null;

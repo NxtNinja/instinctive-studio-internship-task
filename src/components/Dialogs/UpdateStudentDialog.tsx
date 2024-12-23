@@ -40,7 +40,7 @@ const UpdateStudentDialog: FC<UpdateStudentDialogProps> = ({
   useEffect(() => {
     fetchCourses();
     fetchCohorts();
-  }, []);
+  }, [fetchCohorts, fetchCourses]);
 
   const handleCourseSelect = (courseId: string) => {
     setSelectedCourses((prev) =>
@@ -86,7 +86,7 @@ const UpdateStudentDialog: FC<UpdateStudentDialogProps> = ({
       <DialogHeader>
         <DialogTitle>Update student profile</DialogTitle>
         <DialogDescription>
-          Update the student profile here. Click save when you're done.
+          Update the student profile here. Click save when you&apos;re done.
         </DialogDescription>
       </DialogHeader>
       <div className="grid gap-4 py-4">

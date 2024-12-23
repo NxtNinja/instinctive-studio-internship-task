@@ -1,7 +1,7 @@
 // pages/api/students.js
 import { NextResponse } from "next/server";
 import { Student, StudentCourse, TransformedStudent } from "@/utils/types";
-const { prisma } = require("../../../utils/prisma");
+import { prisma } from "@/utils/prisma";
 
 export async function GET() {
   try {

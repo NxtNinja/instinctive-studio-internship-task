@@ -15,6 +15,7 @@ import {
   Settings,
   Users,
 } from "lucide-react";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const menuItems = [
@@ -40,7 +41,7 @@ export const MobileSidebar = () => {
         <SheetHeader className="p-4">
           <SheetTitle>
             <div className="p-7">
-              <img
+              <Image
                 src="/Vector.svg"
                 alt="Brand Logo"
                 width={150}

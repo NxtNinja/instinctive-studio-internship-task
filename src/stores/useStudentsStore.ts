@@ -1,4 +1,5 @@
 // stores/useStudentsStore.ts
+
 import { create } from "zustand";
 import axios from "axios";
 import { TransformedStudent } from "@/utils/types";
@@ -11,13 +12,11 @@ export interface Cohort {
 export interface Course {
   id: string;
   course_name: string;
-  category: string;
 }
 
 export interface Student {
   id: string;
   name: string;
-  email: string;
   date_joined: Date;
   cohort_id: string;
   last_login: Date | null;

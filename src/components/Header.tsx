@@ -6,12 +6,9 @@ import {
   Search,
 } from "lucide-react";
 import Image from "next/image";
-import { FC } from "react";
 import { MobileSidebar } from "./MobileSidebar";
 
-interface HeaderProps {}
-
-const Header: FC<HeaderProps> = ({}) => {
+const Header = () => {
   return (
     <div className="flex flex-col lg:flex-row justify-between items-center gap-4 w-full py-3 overflow-hidden">
       {/* Search Input */}

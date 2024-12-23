@@ -14,25 +14,18 @@ import {
 import useCohortsStore from "@/stores/useCohortsStore";
 import useCoursesStore from "@/stores/useCoursesStore";
 import useStudentsStore from "@/stores/useStudentsStore";
-import { FC, useEffect } from "react";
+import { useEffect } from "react";
 
-interface pageProps {}
-
-const page: FC<pageProps> = ({}) => {
+const Page = () => {
   const { courses, fetchCourses } = useCoursesStore();
-  const {
-    cohorts,
-
-    fetchCohorts,
-  } = useCohortsStore();
-
+  const { cohorts, fetchCohorts } = useCohortsStore();
   const { students, loading, fetchStudents } = useStudentsStore();
 
   useEffect(() => {
     fetchStudents();
     fetchCourses();
     fetchCohorts();
-  }, [fetchStudents]);
+  }, [fetchStudents, fetchCourses, fetchCohorts]); // Added fetchCourses and fetchCohorts to dependencies
 
   return (
     <div className="bg-white h-[80dvh] p-4 lg:p-5 flex flex-col gap-8 rounded-2xl w-full overflow-y-auto">
@@ -85,4 +78,4 @@ const page: FC<pageProps> = ({}) => {
   );
 };
 
-export default page;
+export default Page;
