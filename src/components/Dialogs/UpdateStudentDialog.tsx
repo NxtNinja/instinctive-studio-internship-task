@@ -59,7 +59,7 @@ const UpdateStudentDialog: FC<UpdateStudentDialogProps> = ({
       setLoading(true);
 
       try {
-        const res = await axios.put(`/api/updateStudent/${id}`, {
+        const res = await axios.put(`/api/updateStudent/?id=${id}`, {
           name: studentName,
           cohort_id: selectedCohort,
           courses: selectedCourses,

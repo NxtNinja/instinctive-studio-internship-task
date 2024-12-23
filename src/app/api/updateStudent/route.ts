@@ -1,12 +1,18 @@
 import { NextResponse } from "next/server";
-const { prisma } = require("../../../../utils/prisma");
+const { prisma } = require("@/utils/prisma");
 
-export async function PUT(
-  req: Request,
-  { params }: { params: { id: string } }
-) {
+export async function PUT(req: Request) {
   try {
-    const { id: studentId } = await params;
+    // Get the student ID from the query parameters
+    const studentId = new URL(req.url).searchParams.get("id");
+
+    if (!studentId) {
+      return NextResponse.json(
+        { error: "Student ID is required" },
+        { status: 400 }
+      );
+    }
+
     const body = await req.json();
     const { name, cohort_id, courses } = body;
 
@@ -20,12 +26,14 @@ export async function PUT(
       );
     }
 
+    // Delete existing courses for the student before updating
     await prisma.studentCourses.deleteMany({
       where: {
         student_id: studentId,
       },
     });
 
+    // Update the student with new data
     const updatedStudent = await prisma.student.update({
       where: {
         id: studentId,
@@ -34,7 +42,7 @@ export async function PUT(
         name,
         cohort_id,
         studentCourses: {
-          create: courses.map((course) => ({
+          create: courses.map((course: string) => ({
             course_id: course,
           })),
         },
