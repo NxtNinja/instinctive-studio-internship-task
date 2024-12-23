@@ -28,7 +28,10 @@ export async function DELETE(request: Request) {
       },
     });
 
-    return new NextResponse(null, { status: 204 });
+    return new NextResponse(null, { status: 204 }).headers.set(
+      "Cache-Control",
+      "no-store"
+    );
   } catch (error) {
     console.error("Error deleting student:", error);
     return NextResponse.json(

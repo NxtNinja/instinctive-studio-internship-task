@@ -37,7 +37,10 @@ export async function POST(req: Request) {
       },
     });
 
-    return NextResponse.json(student, { status: 201 });
+    return NextResponse.json(student, { status: 201 }).headers.set(
+      "Cache-Control",
+      "no-store"
+    );
   } catch (error) {
     console.error("Error creating student:", error);
     return NextResponse.json(
