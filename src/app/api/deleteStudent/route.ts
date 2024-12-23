@@ -1,19 +1,27 @@
 import { NextResponse } from "next/server";
-const { prisma } = require("../../../../utils/prisma");
+const { prisma } = require("@/utils/prisma");
 
-export async function DELETE(
-  request: Request,
-  context: { params: { id: string } }
-) {
+export async function DELETE(request: Request) {
   try {
-    const studentId = context.params.id;
+    // Create a URL object from the request URL
+    const url = new URL(request.url);
+    const studentId = url.searchParams.get("id");
 
+    if (!studentId) {
+      return NextResponse.json(
+        { error: "Student ID is required" },
+        { status: 400 }
+      );
+    }
+
+    // Delete associated student courses
     await prisma.StudentCourses.deleteMany({
       where: {
         student_id: studentId,
       },
     });
 
+    // Delete student
     await prisma.student.delete({
       where: {
         id: studentId,
