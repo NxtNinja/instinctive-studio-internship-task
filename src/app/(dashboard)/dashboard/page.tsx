@@ -1,10 +1,13 @@
-import Header from "@/components/Header";
 import { FC } from "react";
 
 interface pageProps {}
 
 const page: FC<pageProps> = ({}) => {
-  return <>{/* <Header /> */}</>;
+  return (
+    <>
+      <div className=""></div>
+    </>
+  );
 };
 
 export default page;
