@@ -2,27 +2,25 @@ import { NextResponse } from "next/server";
 const { prisma } = require("../../../../utils/prisma");
 
 export async function DELETE(
-  req: Request,
+  request: Request,
   { params }: { params: { id: string } }
 ) {
   try {
-    const { id: studentId } = await params;
+    const studentId = params.id;
 
-    console.log(studentId);
-
-    await prisma.studentCourses.deleteMany({
+    await prisma.StudentCourses.deleteMany({
       where: {
         student_id: studentId,
       },
     });
 
-    await prisma.student.deleteMany({
+    await prisma.student.delete({
       where: {
         id: studentId,
       },
     });
 
-    return NextResponse.json({ status: 204 });
+    return new NextResponse(null, { status: 204 });
   } catch (error) {
     console.error("Error deleting student:", error);
     return NextResponse.json(

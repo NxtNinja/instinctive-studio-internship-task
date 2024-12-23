@@ -31,7 +31,7 @@ const DeleteStudentButton: FC<DeleteStudentButtonProps> = ({
     setLoading(true);
     try {
       const response = await axios.delete(`/api/deleteStudent/${studentId}`);
-      if (response.status === 200) {
+      if (response.status === 204) {
         fetchStudents();
         setIsDialogOpen(false);
       }
