@@ -1,3 +1,3 @@
-import { PrismaClient } from "@prisma/client"; // Correct import path
+import { PrismaClient } from "@prisma/client";
 
 export const prisma = new PrismaClient();
