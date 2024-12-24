@@ -29,8 +29,8 @@ const Header = () => {
         <div className="block lg:hidden">
           <MobileSidebar />
         </div>
-        <div className="flex justify-end items-center gap-3">
-          <div className="flex items-center gap-4 lg:gap-8 relative">
+        <div className="flex justify-end items-center gap-5 lg:gap-24">
+          <div className="flex items-center gap-8 lg:gap-16 relative">
             <HelpCircle className="text-gray-500 w-5 h-5 lg:w-6 lg:h-6" />
 
             {/* Message Icon with Red Dot */}
