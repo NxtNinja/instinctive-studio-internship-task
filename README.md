@@ -45,25 +45,21 @@ This project is an **Admin Panel for Student Management**, designed to demonstra
 
 #### **Usage**
 
-    1. Add Students:
+1. **Add Students:**
 
-- Use the "Add Student" form to input details like name, email, and age.
-- Save the details to the database.
+   - Use the "Add Student" form to input details like name, email, and age.
+   - Save the details to the database.
 
+2. **View Students:**
 
-    2. View Students:
+   - A table displays all student records from the database.
 
-- A table displays all student records from the database.
+3. **Update Student Information:**
 
+   - Edit details of existing students using the "Edit" option.
 
-    3. Update Student Information:
-
-- Edit details of existing students using the "Edit" option.
-
-
-    4. Delete Students:
-
-- Remove students permanently using the "Delete" option.
+4. **Delete Students:**
+   - Remove students permanently using the "Delete" option.
 
 ---
 
