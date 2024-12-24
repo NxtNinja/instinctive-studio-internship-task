@@ -14,6 +14,7 @@ import axios from "axios";
 import { Loader, Plus, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
+import { toast } from "sonner";
 
 const CreateStudentDialog = () => {
   const [selectedCourses, setSelectedCourses] = useState<string[]>([]);
@@ -62,6 +63,10 @@ const CreateStudentDialog = () => {
           setLoading(false);
           setIsDialogOpen(false);
           fetchStudents();
+          toast.success("Student created successfully");
+          setStudentName("");
+          setSelectedCohort("");
+          setSelectedCourses([]);
         }
       } catch (error) {
         console.log(error);

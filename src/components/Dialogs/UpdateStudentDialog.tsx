@@ -14,6 +14,7 @@ import useCohortsStore from "@/stores/useCohortsStore";
 import axios from "axios";
 import useStudentsStore from "@/stores/useStudentsStore";
 import DeleteStudentButton from "../Buttons/DeleteStudentButton";
+import { toast } from "sonner";
 
 interface UpdateStudentDialogProps {
   student: TransformedStudent;
@@ -67,6 +68,7 @@ const UpdateStudentDialog: FC<UpdateStudentDialogProps> = ({
         if (res.status === 200) {
           setIsDialogOpen(false);
           setLoading(false);
+          toast.success("Student updated successfully");
           fetchStudents();
         }
       } catch (error) {

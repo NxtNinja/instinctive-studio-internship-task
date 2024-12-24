@@ -14,6 +14,7 @@ import {
 } from "../ui/alert-dialog";
 import axios from "axios";
 import useStudentsStore from "@/stores/useStudentsStore";
+import { toast } from "sonner";
 
 interface DeleteStudentButtonProps {
   id: string;
@@ -36,6 +37,7 @@ const DeleteStudentButton: FC<DeleteStudentButtonProps> = ({
       if (response.status === 204) {
         fetchStudents();
         setIsDialogOpen(false);
+        toast.success("Student deleted successfully");
       }
     } catch (error) {
       console.error("Error deleting student:", error);
